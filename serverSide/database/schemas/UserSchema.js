@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  personID: Number,
+  UserID: Number,
   Name: String,
   Email: String,
   Address: {
@@ -13,14 +13,14 @@ var UserSchema = new Schema({
     geo: {
       lat: String,
       lng: String
-    },
-    Phone: String,
-    Website: String,
-    Company: {
-      Name: String,
-      CatchPhrae: String,
-      BS: String
     }
+  },
+  Phone: String,
+  Website: String,
+  Company: {
+    Name: String,
+    CatchPhrae: String,
+    BS: String
   }
 });
 
