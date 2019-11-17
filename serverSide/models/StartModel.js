@@ -15,23 +15,16 @@ module.exports.LoadUsers = async () => {
           UserID: user.id,
           Name: user.name,
           Email: user.email,
-          Address: {
-            Street: user.address.street,
-            Suite: user.address.suite,
-            City: user.address.city,
-            Zipcode: user.address.zipcode,
-            geo: {
-              lat: user.address.geo.lat,
-              lng: user.address.geo.lng
-            }
-          },
-          Phone: user.address.phone,
-          Website: user.address.website,
-          Company: {
-            Name: user.company.name,
-            CatchPhrae: user.company.CatchPhrae,
-            BS: user.company.BS
-          }
+          Street: user.address.street,
+          Suite: user.address.suite,
+          City: user.address.city,
+          Zipcode: user.address.zipcode,
+          lat: user.address.geo.lat,
+          lng: user.address.geo.lng,
+          Phone: user.phone,
+          Website: user.website,
+          CompanyName: user.company.name,
+          BS: user.company.bs
         }).save()
       );
     });
