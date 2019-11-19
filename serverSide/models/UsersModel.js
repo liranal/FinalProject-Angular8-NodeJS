@@ -17,19 +17,6 @@ module.exports.getAllUsers = async () => {
 };
 
 module.exports.getUserByID = async function(id) {
-  UserData = await User.findById(id, function(err, user) {
-    if (err) {
-      return err;
-    } else {
-      console.log(user);
-      return user;
-    }
-  });
-
-  return UserData;
-};
-
-module.exports.getUserByUserID = async function(id) {
   UserData = await User.find({ UserID: id }, function(err, user) {
     if (err) {
       return err;
@@ -48,8 +35,27 @@ module.exports.setUserByID = async function(id, obj) {
     err
   ) {
     if (err) return "error";
-    return { message: "Task updated successfuly" };
+    return { message: "User updated successfuly" };
   });
-
   return update;
+};
+
+module.exports.addUser = async function(obj) {
+  console.log(obj);
+  newUser = new User(obj);
+  console.log("NEW USER: " + newUser);
+  return newUser.save(function(err) {
+    if (err) {
+      console.log(err);
+      return err;
+    } else {
+      console.log("ADDDEDDD");
+      return "User Added";
+    }
+  });
+};
+
+module.exports.deleteUser = async function(id) {
+  console.log(id);
+  return User.findOneAndDelete({ UserID: id });
 };

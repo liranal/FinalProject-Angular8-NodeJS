@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 
 var TaskSchema = new Schema({
   UserID: Number,
-  TaskID: Number,
   Title: String,
   Completed: Boolean
 });

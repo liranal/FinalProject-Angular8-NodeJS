@@ -1,33 +1,33 @@
 const express = require("express");
-const TaskModel = require("../models/TasksModel");
+const PostModel = require("../models/PostsModel");
 const router = express.Router();
 
 router.route("/").get(function(req, res) {
-  TaskModel.getAllTasks()
-    .then(allTasks => {
-      res.json(allTasks);
+  PostModel.getAllPosts()
+    .then(allPosts => {
+      res.json(allPosts);
     })
     .catch(err => res.send(err));
 });
 
 router.route("/:id").get(function(req, res) {
-  TaskModel.getTaskByTaskID(req.params.id)
-    .then(task => {
-      res.json(task);
+  PostModel.getPostByPostID(req.params.id)
+    .then(post => {
+      res.json(post);
     })
     .catch(err => res.send(err));
 });
 
 router.route("/User/:id").get(function(req, res) {
-  TaskModel.getTaskByUserID(req.params.id)
-    .then(task => {
-      res.json(task);
+  PostModel.getPostByUserID(req.params.id)
+    .then(post => {
+      res.json(post);
     })
     .catch(err => res.send(err));
 });
 
 router.route("/:id").put(function(req, res) {
-  TaskModel.setTaskByID(req.params.id, {
+  PostModel.setPostByID(req.params.id, {
     Title: req.body.Title,
     Completed: req.body.Completed
   })
@@ -39,7 +39,7 @@ router.route("/:id").put(function(req, res) {
 
 router.route("/").post(function(req, res) {
   res.send(
-    TaskModel.addTask({
+    PostModel.addPost({
       UserID: req.body.UserID,
       Title: req.body.Title,
       Completed: req.body.Completed
@@ -49,7 +49,7 @@ router.route("/").post(function(req, res) {
 
 router.route("/:id").delete(function(req, res) {
   console.log(req.params.id);
-  response = TaskModel.deleteTask(req.params.id);
+  response = PostModel.deletePost(req.params.id);
   res.send(response);
 });
 

@@ -13,7 +13,20 @@ module.exports.getAllTasks = async () => {
   return allTasksData;
 };
 
-module.exports.getTaskByID = async function(id) {
+module.exports.getTaskByUserID = async function(id) {
+  allTasksData = await Task.find({ UserID: id }, function(err, tasks) {
+    if (err) {
+      return err;
+    } else {
+      console.log(tasks);
+      return tasks;
+    }
+  });
+
+  return allTasksData;
+};
+
+module.exports.getTaskByTaskID = async function(id) {
   allTasksData = await Task.findById(id, function(err, tasks) {
     if (err) {
       return err;
@@ -40,14 +53,20 @@ module.exports.setTaskByID = async function(id, obj) {
 
 module.exports.addTask = async function(obj) {
   console.log(obj);
-  newTask = new Task({ obj });
-  let insert = await newTask.save(function(err) {
+  newTask = new Task(obj);
+  console.log(newTask);
+  return await newTask.save(function(err) {
     if (err) {
+      console.log(err);
       return err;
     } else {
       console.log("ADDDEDDD");
       return "Task Added";
     }
   });
-  return insert;
+};
+
+module.exports.deleteTask = async function(id) {
+  console.log(id);
+  return Task.findOneAndDelete(id);
 };
