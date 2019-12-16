@@ -1,0 +1,17 @@
+<div class="usersData">
+  <mat-form-field class="searchFld" appreance="outline">
+    <input
+      matInput
+      placeholder="Search"
+      type="text"
+      #searchField
+      (keyup)="search(searchField.value)"
+    />
+  </mat-form-field>
+  <div *ngFor="let user of users">
+    <app-user
+      [user]="user"
+      (userClicked_Event)="userClicked_Event($event)"
+    ></app-user>
+  </div>
+</div>

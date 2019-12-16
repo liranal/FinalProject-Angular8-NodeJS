@@ -1,0 +1,62 @@
+<mat-card class="userCard">
+  <mat-card-header [routerLink]="['/Tasks', this.user.id]">
+    <mat-card-title>ID: {{ this.user.id }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form #form="ngForm">
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="{{ this.user.name }}"
+          value="{{ this.user.name }}"
+        />
+      </mat-form-field>
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="{{ this.user.email }}"
+          value="{{ this.user.email }}"
+        />
+      </mat-form-field>
+      <div id="otherData" *ngIf="this.showOtherData">
+        <mat-form-field class="formField" appearance="outline">
+          <mat-label>Street</mat-label>
+          <input
+            matInput
+            placeholder="{{ this.user.address.street }}"
+            value="{{ this.user.address.street }}"
+          />
+        </mat-form-field>
+        <mat-form-field class="formField" appearance="outline">
+          <mat-label>City</mat-label>
+          <input
+            matInput
+            placeholder="{{ this.user.address.city }}"
+            value="{{ this.user.address.city }}"
+          />
+        </mat-form-field>
+        <mat-form-field class="formField" appearance="outline">
+          <mat-label>ZIP</mat-label>
+          <input
+            matInput
+            placeholder="{{ this.user.address.zipcode }}"
+            value="{{ this.user.address.zipcode }}"
+          />
+        </mat-form-field>
+      </div>
+      <div class="FormButtons">
+        <button mat-stroked-button (click)="OtherDatabtn()" class="otherData">
+          Other Data
+        </button>
+        <button mat-stroked-button (click)="Updatebtn()" class="updatebtn">
+          Update
+        </button>
+        <button mat-stroked-button (click)="Deletebtn()" class="deletebtn">
+          Delete
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,28 @@
+.userCard {
+  width: 35%;
+  margin-bottom: 20px;
+}
+
+.userCard:hover {
+  box-shadow: 2px 2px 4px black;
+  cursor: pointer;
+}
+
+.formField {
+  width: 80%;
+}
+.otherData {
+  margin-right: 33%;
+}
+
+#otherData {
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  background: #eeeeee;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  border-color: #333333;
+  border-width: 2px;
+}
