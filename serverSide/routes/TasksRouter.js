@@ -26,8 +26,10 @@ router.route("/User/:id").get(function(req, res) {
     .catch(err => res.send(err));
 });
 
-router.route("/:id").put(function(req, res) {
-  TaskModel.setTaskByID(req.params.id, {
+router.route("/User/:userid").put(function(req, res) {
+  TaskModel.setTask(req.params.userid, {
+    TaskID: req.body.TaskID,
+    UserID: req.params.userid,
     Title: req.body.Title,
     Completed: req.body.Completed
   })

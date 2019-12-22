@@ -27,7 +27,7 @@ module.exports.getTaskByUserID = async function(id) {
 };
 
 module.exports.getTaskByTaskID = async function(id) {
-  allTasksData = await Task.findById(id, function(err, tasks) {
+  allTasksData = await Task.findById({ TaskID: id }, function(err, tasks) {
     if (err) {
       return err;
     } else {
@@ -39,14 +39,17 @@ module.exports.getTaskByTaskID = async function(id) {
   return allTasksData;
 };
 
-module.exports.setTaskByID = async function(id, obj) {
+module.exports.setTask = async function(userid, obj) {
   console.log(obj);
-  update = await Task.findByIdAndUpdate(id, obj, { upsert: true }, function(
-    err
-  ) {
-    if (err) return "error";
-    return { message: "Task updated successfuly" };
-  });
+  update = await Task.findOneAndUpdate(
+    { TaskID: obj.TaskID, UserID: userid },
+    obj,
+    { upsert: true },
+    function(err) {
+      if (err) return "error";
+      return { message: "Task updated successfuly" };
+    }
+  );
 
   return update;
 };
@@ -68,5 +71,5 @@ module.exports.addTask = async function(obj) {
 
 module.exports.deleteTask = async function(id) {
   console.log(id);
-  return Task.findOneAndDelete(id);
+  return Task.findOneAndDelete({ TaskID: id });
 };

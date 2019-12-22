@@ -1,48 +1,58 @@
 <mat-card class="userCard">
-  <mat-card-header [routerLink]="['/Tasks', this.user.id]">
-    <mat-card-title>ID: {{ this.user.id }}</mat-card-title>
+  <mat-card-header [routerLink]="['/Tasks', this.user.UserID]">
+    <mat-card-title>ID: {{ this.user.UserID }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form #form="ngForm">
       <mat-form-field class="formField" appearance="outline">
         <mat-label>Name</mat-label>
         <input
+          #name
           matInput
-          placeholder="{{ this.user.name }}"
-          value="{{ this.user.name }}"
+          placeholder="{{ this.user.Name }}"
+          value="{{ this.user.Name }}"
+          (keyup)="ChangeName(name.value)"
         />
       </mat-form-field>
       <mat-form-field class="formField" appearance="outline">
         <mat-label>Email</mat-label>
         <input
+          #Email
           matInput
-          placeholder="{{ this.user.email }}"
-          value="{{ this.user.email }}"
+          placeholder="{{ this.user.Email }}"
+          value="{{ this.user.Email }}"
+          (keyup)="ChangeEmail(Email.value)"
         />
       </mat-form-field>
       <div id="otherData" *ngIf="this.showOtherData">
         <mat-form-field class="formField" appearance="outline">
           <mat-label>Street</mat-label>
           <input
+            #Street
             matInput
-            placeholder="{{ this.user.address.street }}"
-            value="{{ this.user.address.street }}"
+            placeholder="{{ this.user.Street }}"
+            value="{{ this.user.Street }}"
+            (keyup)="ChangeStreet(Street.value)"
           />
         </mat-form-field>
         <mat-form-field class="formField" appearance="outline">
           <mat-label>City</mat-label>
           <input
+            #City
             matInput
-            placeholder="{{ this.user.address.city }}"
-            value="{{ this.user.address.city }}"
+            placeholder="{{ this.user.City }}"
+            value="{{ this.user.City }}"
+            (keyup)="ChangeCity(City.value)"
           />
         </mat-form-field>
         <mat-form-field class="formField" appearance="outline">
           <mat-label>ZIP</mat-label>
           <input
+            #Zip
             matInput
-            placeholder="{{ this.user.address.zipcode }}"
-            value="{{ this.user.address.zipcode }}"
+            placeholder="{{ this.user.Zipcode }}"
+            value="{{ this.user.Zipcode }}"
+            (keyup)="ChangeZipcode(Zip.value)"
           />
         </mat-form-field>
       </div>

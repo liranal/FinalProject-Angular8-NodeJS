@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { UtilsServiceService } from "../utils-service.service";
+import { TasksUtilsServiceService } from "../tasks-utils-service.service";
 
 @Component({
   selector: "app-tasks",
@@ -13,7 +13,7 @@ export class TasksComponent implements OnInit {
   private id: number;
   constructor(
     private route: ActivatedRoute,
-    private utils: UtilsServiceService
+    private utils: TasksUtilsServiceService
   ) {}
 
   ngOnInit() {

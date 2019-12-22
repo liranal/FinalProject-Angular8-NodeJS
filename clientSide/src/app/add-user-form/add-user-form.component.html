@@ -1,0 +1,37 @@
+<form #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
+  Name:
+  <input
+    minlength="3"
+    required
+    #UserName="ngModel"
+    [(ngModel)]="user.Name"
+    type="text"
+    name="UserName"
+  /><br />
+  Email :
+  <input
+    minlength="5"
+    #Email="ngModel"
+    [(ngModel)]="user.Email"
+    type="text"
+    name="Email"
+  /><br />
+
+  <div
+    *ngIf="
+      (!UserName.valid && UserName.dirty && UserName.errors.required) ||
+      !isFormValid
+    "
+  >
+    The Name is mandatory
+  </div>
+  <div *ngIf="!UserName.valid && UserName.dirty && UserName.errors.minlength">
+    The Name must be 2 chars minimum
+  </div>
+
+  <div *ngIf="(!Email.valid && Email.dirty) || !isFormValid">
+    The Email must be 5 chars minimum
+  </div>
+
+  <input type="submit" value="Send" />
+</form>

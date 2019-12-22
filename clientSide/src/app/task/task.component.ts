@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { UtilsServiceService } from "../utils-service.service";
-
+import { TasksUtilsServiceService } from "../tasks-utils-service.service";
 @Component({
   selector: "app-task",
   templateUrl: "./task.component.html",
@@ -11,14 +10,13 @@ export class TaskComponent implements OnInit {
   private id: number;
   private sub: any;
   @Input() private task: any;
-  constructor(
-    private route: ActivatedRoute,
-    private utils: UtilsServiceService
-  ) {}
+  constructor(private utils: TasksUtilsServiceService) {}
 
   changeCompleted() {
-    this.task.completed = !this.task.completed;
-    console.log("HELLO");
+    this.task.Completed = !this.task.Completed;
+    this.utils.updateTask(this.task).subscribe(data => {
+      console.log(data);
+    });
   }
   ngOnInit() {
     console.log(this.task);

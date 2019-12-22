@@ -31,12 +31,15 @@ module.exports.getUserByID = async function(id) {
 
 module.exports.setUserByID = async function(id, obj) {
   console.log(obj);
-  update = await User.findByIdAndUpdate(id, obj, { upsert: true }, function(
-    err
-  ) {
-    if (err) return "error";
-    return { message: "User updated successfuly" };
-  });
+  update = await User.findOneAndUpdate(
+    { UserID: id },
+    obj,
+    { upsert: true },
+    function(err) {
+      if (err) return "error";
+      return { message: "User updated successfuly" };
+    }
+  );
   return update;
 };
 

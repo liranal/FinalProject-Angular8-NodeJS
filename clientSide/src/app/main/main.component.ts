@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { UtilsServiceService } from "../utils-service.service";
+import { UsersUtilsServiceService } from "../users-utils-service.service";
 
 @Component({
   selector: "app-main",
@@ -7,13 +7,7 @@ import { UtilsServiceService } from "../utils-service.service";
   styleUrls: ["./main.component.css"]
 })
 export class MainComponent implements OnInit {
-  private users: any[] = null;
-  constructor(private utils: UtilsServiceService) {}
+  constructor(private utils: UsersUtilsServiceService) {}
 
-  ngOnInit() {
-    this.utils.getAllUsers().subscribe(users => {
-      sessionStorage.setItem("Users", JSON.stringify(users));
-      this.users = users;
-    });
-  }
+  ngOnInit() {}
 }

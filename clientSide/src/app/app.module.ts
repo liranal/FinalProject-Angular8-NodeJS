@@ -20,6 +20,10 @@ import { UsersComponent } from "./users/users.component";
 import { TaskComponent } from "./task/task.component";
 import { UserDataComponent } from "./user-data/user-data.component";
 import { TasksComponent } from "./tasks/tasks.component";
+import { PostsComponent } from "./posts/posts.component";
+import { PostComponent } from "./post/post.component";
+import { AddUserFormComponent } from "./add-user-form/add-user-form.component";
+import { UsersUtilsServiceService } from "./users-utils-service.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,10 @@ import { TasksComponent } from "./tasks/tasks.component";
     UsersComponent,
     TaskComponent,
     UserDataComponent,
-    TasksComponent
+    TasksComponent,
+    PostsComponent,
+    PostComponent,
+    AddUserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,7 @@ import { TasksComponent } from "./tasks/tasks.component";
     FormsModule,
     MatListModule
   ],
-  providers: [],
+  providers: [UsersUtilsServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

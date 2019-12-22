@@ -19,6 +19,7 @@ router.route("/:id").get(function(req, res) {
 router.route("/:id").put(function(req, res) {
   console.log(req.body);
   UsersModel.setUserByID(req.params.id, {
+    UserID: req.body.UserID,
     Name: req.body.Name,
     Email: req.body.Email,
     Street: req.body.Street,

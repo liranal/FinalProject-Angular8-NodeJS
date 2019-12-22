@@ -1,8 +1,8 @@
 <mat-form-field>
-  <input matInput value="{{ this.task.title }}" />
+  <input matInput value="{{ this.task.Title }}" />
 </mat-form-field>
-<span class="CompletedSec">Completed: {{ this.task.completed }}</span>
-<button mat-button *ngIf="!this.task.completed" (click)="changeCompleted()">
+<span class="CompletedSec">Completed: {{ this.task.Completed }}</span>
+<button mat-button *ngIf="!this.task.Completed" (click)="changeCompleted()">
   Click to Complete
 </button>
 <hr />
