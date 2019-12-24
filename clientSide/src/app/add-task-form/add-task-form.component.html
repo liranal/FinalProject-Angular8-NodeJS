@@ -15,6 +15,11 @@
   >
     The title is mandatory
   </div>
-
-  <input type="submit" value="Send" />
+  <input mat-button type="submit" value="Send" />
+  <input
+    mat-button
+    type="button"
+    value="Cancel"
+    [routerLink]="['/Tasks', task.UserID]"
+  />
 </form>

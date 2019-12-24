@@ -44,18 +44,10 @@ module.exports.setUserByID = async function(id, obj) {
 };
 
 module.exports.addUser = async function(obj) {
-  console.log(obj);
   newUser = new User(obj);
   console.log("NEW USER: " + newUser);
-  return newUser.save(function(err) {
-    if (err) {
-      console.log(err);
-      return err;
-    } else {
-      console.log("ADDDEDDD");
-      return "User Added";
-    }
-  });
+  let add = await newUser.save();
+  return add;
 };
 
 module.exports.deleteUser = async function(id) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { TasksUtilsServiceService } from "../tasks-utils-service.service";
 
 @Component({
@@ -14,6 +14,7 @@ export class AddTaskFormComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private routerNav: Router,
     private utils: TasksUtilsServiceService
   ) {}
 
@@ -22,6 +23,7 @@ export class AddTaskFormComponent implements OnInit {
       alert("ADD!");
       this.isFormValid = true;
       this.utils.addTask(this.task);
+      this.routerNav.navigate(["/Tasks", this.task.UserID]);
     } else {
       this.isFormValid = false;
     }

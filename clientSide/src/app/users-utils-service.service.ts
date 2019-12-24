@@ -56,7 +56,7 @@ export class UsersUtilsServiceService {
       })
     );
     user["UserID"] = lastUserID + 1;
-    return this.http
+    this.http
       .post<any>("http://localhost:8000/api/users/", user)
       .subscribe(data => {
         this.users.push(data);

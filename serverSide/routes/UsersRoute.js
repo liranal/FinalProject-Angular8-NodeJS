@@ -57,8 +57,12 @@ router.route("/").post(function(req, res) {
     CompanyName: req.body.CompanyName,
     CatchPhrase: req.body.CatchPhrase,
     BS: req.body.BS
-  });
-  res.send(response);
+  })
+    .then(data => {
+      console.log("ADDED Person" + data);
+      res.json(data);
+    })
+    .catch(err => res.send(err));
 });
 
 router.route("/:id").delete(function(req, res) {
