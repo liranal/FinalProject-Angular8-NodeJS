@@ -23,11 +23,15 @@ export class UsersUtilsServiceService {
       this.usersObserver.next(this.users);
     });
   }
+
   setUserData(id, user) {
     this.http
       .put<any>("http://localhost:8000/api/users/" + id, user)
       .subscribe(data => {
-        this.getAllUsers();
+        let userIndex = this.users.findIndex(userToFind => {
+          return userToFind == user;
+        });
+        this.users[userIndex] = data;
         this.usersObserver.next(this.users);
       });
   }
@@ -36,7 +40,10 @@ export class UsersUtilsServiceService {
     return this.http
       .delete<any>("http://localhost:8000/api/users/" + userToDelete.UserID)
       .subscribe(data => {
-        this.getAllUsers();
+        let userIndex = this.users.findIndex(userToFind => {
+          return userToFind == userToDelete;
+        });
+        this.users.splice(userIndex, 1);
         this.usersObserver.next(this.users);
       });
   }
@@ -52,7 +59,7 @@ export class UsersUtilsServiceService {
     return this.http
       .post<any>("http://localhost:8000/api/users/", user)
       .subscribe(data => {
-        this.getAllUsers();
+        this.users.push(data);
         this.usersObserver.next(this.users);
       });
   }

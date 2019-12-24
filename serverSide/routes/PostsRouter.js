@@ -41,6 +41,7 @@ router.route("/").post(function(req, res) {
   res.send(
     PostModel.addPost({
       UserID: req.body.UserID,
+      TaskID: req.body.TaskID,
       Title: req.body.Title,
       Completed: req.body.Completed
     })

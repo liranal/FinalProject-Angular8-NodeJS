@@ -28,6 +28,7 @@ router.route("/User/:id").get(function(req, res) {
 
 router.route("/User/:userid").put(function(req, res) {
   TaskModel.setTask(req.params.userid, {
+    _id: req.body._id,
     TaskID: req.body.TaskID,
     UserID: req.params.userid,
     Title: req.body.Title,
@@ -40,13 +41,17 @@ router.route("/User/:userid").put(function(req, res) {
 });
 
 router.route("/").post(function(req, res) {
-  res.send(
-    TaskModel.addTask({
-      UserID: req.body.UserID,
-      Title: req.body.Title,
-      Completed: req.body.Completed
+  TaskModel.addTask({
+    UserID: req.body.UserID,
+    TaskID: req.body.TaskID,
+    Title: req.body.Title,
+    Completed: req.body.Completed
+  })
+    .then(data => {
+      console.log("ADDED Person" + data);
+      res.json(data);
     })
-  );
+    .catch(err => res.send(err));
 });
 
 router.route("/:id").delete(function(req, res) {

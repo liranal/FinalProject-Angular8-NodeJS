@@ -1,0 +1,20 @@
+<form #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
+  Title:
+  <input
+    minlength="3"
+    required
+    #title="ngModel"
+    [(ngModel)]="task.Title"
+    type="text"
+    name="title"
+  /><br />
+  <div
+    *ngIf="
+      (!title.valid && title.dirty && title.errors.required) || !isFormValid
+    "
+  >
+    The title is mandatory
+  </div>
+
+  <input type="submit" value="Send" />
+</form>

@@ -19,9 +19,10 @@ export class TasksComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = params.id;
-      this.utils.getUserToDo(params.id).subscribe(data => {
-        this.tasks = data;
-      });
+      this.utils.getUserToDo(params.id);
+    });
+    this.utils.tasksObserver.subscribe(data => {
+      this.tasks = data[this.id];
     });
   }
 }

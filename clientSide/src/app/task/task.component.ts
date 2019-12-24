@@ -14,9 +14,7 @@ export class TaskComponent implements OnInit {
 
   changeCompleted() {
     this.task.Completed = !this.task.Completed;
-    this.utils.updateTask(this.task).subscribe(data => {
-      console.log(data);
-    });
+    this.utils.updateTask(this.task);
   }
   ngOnInit() {
     console.log(this.task);

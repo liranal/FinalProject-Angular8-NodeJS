@@ -4,8 +4,8 @@ const StartModel = require("./models/StartModel");
 const bodyParser = require("body-parser");
 
 require("./database/database");
-//StartModel.LoadUsers();
-//StartModel.LoadTasks();
+// StartModel.LoadUsers();
+// StartModel.LoadTasks();
 //StartModel.LoadPosts();
 var cors = require("cors");
 app.use(cors());

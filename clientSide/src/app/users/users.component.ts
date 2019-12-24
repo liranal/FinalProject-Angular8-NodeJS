@@ -33,6 +33,7 @@ export class UsersComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.utils.getAllUsers();
     this.utils.usersObserver.subscribe(data => {
       this.users = data;
     });

@@ -41,8 +41,8 @@ module.exports.getTaskByTaskID = async function(id) {
 
 module.exports.setTask = async function(userid, obj) {
   console.log(obj);
-  update = await Task.findOneAndUpdate(
-    { TaskID: obj.TaskID, UserID: userid },
+  update = await Task.findByIdAndUpdate(
+    obj._id,
     obj,
     { upsert: true },
     function(err) {
@@ -55,18 +55,12 @@ module.exports.setTask = async function(userid, obj) {
 };
 
 module.exports.addTask = async function(obj) {
-  console.log(obj);
+  console.log("OBJECT: " + JSON.stringify(obj));
   newTask = new Task(obj);
   console.log(newTask);
-  return await newTask.save(function(err) {
-    if (err) {
-      console.log(err);
-      return err;
-    } else {
-      console.log("ADDDEDDD");
-      return "Task Added";
-    }
-  });
+  let add = await newTask.save();
+  console.log("DATA ADDED: " + add);
+  return add;
 };
 
 module.exports.deleteTask = async function(id) {

@@ -1,8 +1,9 @@
+<button mat-button [routerLink]="['/AddTask', id]">Add ToDo</button>
 <mat-card class="tasksCard">
   <mat-card-header>
     <mat-card-title>User {{ this.id }}</mat-card-title>
   </mat-card-header>
-  <mat-selection-list *ngFor="let task of this.tasks">
+  <mat-selection-list *ngFor="let task of tasks">
     <app-task [task]="task"></app-task>
   </mat-selection-list>
 </mat-card>
