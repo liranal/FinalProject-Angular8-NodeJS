@@ -11,11 +11,19 @@ export class TasksComponent implements OnInit {
   private sub: any;
   private tasks: any[];
   private id: number;
+  private showAddTask: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private utils: TasksUtilsServiceService
   ) {}
 
+  showAddTaskView() {
+    this.showAddTask = true;
+  }
+
+  backFromAddTask() {
+    this.showAddTask = false;
+  }
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = params.id;

@@ -1,4 +1,10 @@
-<button mat-button [routerLink]="['/AddTask', id]">Add ToDo</button>
+<!--button mat-button [routerLink]="['/AddTask', id]">Add ToDo</button-->
+<button mat-button (click)="showAddTaskView()">Add Todo</button>
+<app-add-task-form
+  *ngIf="showAddTask"
+  [id]="id"
+  (backFromAddTask)="backFromAddTask()"
+></app-add-task-form>
 <mat-card class="tasksCard">
   <mat-card-header>
     <mat-card-title>User {{ this.id }}</mat-card-title>

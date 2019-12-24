@@ -16,10 +16,5 @@
     The title is mandatory
   </div>
   <input mat-button type="submit" value="Send" />
-  <input
-    mat-button
-    type="button"
-    value="Cancel"
-    [routerLink]="['/Tasks', task.UserID]"
-  />
+  <input mat-button type="button" value="Cancel" (click)="cancelBtn()" />
 </form>
