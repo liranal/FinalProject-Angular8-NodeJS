@@ -10,7 +10,7 @@ import { TasksUtilsServiceService } from "../tasks-utils-service.service";
 export class AddTaskFormComponent implements OnInit {
   isFormValid: boolean = true;
   private sub: any;
-  @Input() id: number;
+  id: number;
   @Output() backFromAddTask: EventEmitter<string> = new EventEmitter<string>();
   task: any = { UserID: "", TaskID: "", Title: "", Completed: false };
 
@@ -21,13 +21,14 @@ export class AddTaskFormComponent implements OnInit {
   ) {}
 
   cancelBtn() {
-    this.backFromAddTask.emit();
+    this.routerNav.navigate(["/UserData", this.task.UserID]);
+    //this.backFromAddTask.emit();
   }
 
   customSubmit(isValid: boolean) {
     if (isValid) {
-      this.task.UserID = this.id;
-      //alert("ADD!\n" + JSON.stringify(this.task));
+      //this.task.UserID = this.id;
+      alert("ADD!\n" + JSON.stringify(this.task));
       this.isFormValid = true;
       this.utils.addTask(this.task);
       //this.routerNav.navigate(["/Tasks", this.task.UserID]);
@@ -38,9 +39,11 @@ export class AddTaskFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*this.sub = this.route.params.subscribe(params => {
+    this.sub = this.route.params.subscribe(params => {
       this.task.UserID = params.userid;
       this.task.TaskID = params.taskid;
-    });*/
+      console.log(this.task);
+      console.log(params);
+    });
   }
 }
