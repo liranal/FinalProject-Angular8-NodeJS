@@ -30,6 +30,7 @@ export class UserComponent implements OnInit {
 
   Updatebtn() {
     console.log("Update Clicked");
+    console.log("BITCH TO SEND: " + JSON.stringify(this.user));
     this.userUpdate_Event.emit(this.user);
   }
 
@@ -46,10 +47,10 @@ export class UserComponent implements OnInit {
     this.user.Email = email;
   }
   ChangeStreet(street) {
-    this.user.street = street;
+    this.user.Street = street;
   }
   ChangeCity(city) {
-    this.user.city = city;
+    this.user.City = city;
   }
   ChangeZipcode(zip) {
     this.user.Zipcode = zip;

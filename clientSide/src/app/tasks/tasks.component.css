@@ -5,7 +5,7 @@
   scrollbar-color: white;
   height: 500px;
   margin-right: 10%;
-  margin-top: 20%;
+  margin-top: 10%;
   background-image: linear-gradient(to top, #fbc2eb 0%, #e0adc3 100%);
 }
 
@@ -15,4 +15,9 @@
 .tasksCard::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
+}
+
+.AddTaskbtn {
+  background-color: rgb(255, 255, 255, 0.5);
+  margin-bottom: 10px;
 }

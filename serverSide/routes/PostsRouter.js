@@ -29,7 +29,7 @@ router.route("/User/:id").get(function(req, res) {
 router.route("/:id").put(function(req, res) {
   PostModel.setPostByID(req.params.id, {
     Title: req.body.Title,
-    Completed: req.body.Completed
+    Body: req.body.Body
   })
     .then(data => {
       res.json(data);
@@ -38,14 +38,17 @@ router.route("/:id").put(function(req, res) {
 });
 
 router.route("/").post(function(req, res) {
-  res.send(
-    PostModel.addPost({
-      UserID: req.body.UserID,
-      TaskID: req.body.TaskID,
-      Title: req.body.Title,
-      Completed: req.body.Completed
+  PostModel.addPost({
+    UserID: req.body.UserID,
+    PostID: req.body.PostID,
+    Title: req.body.Title,
+    Body: req.body.Body
+  })
+    .then(data => {
+      console.log("ADDED Post" + data);
+      res.json(data);
     })
-  );
+    .catch(err => res.send(err));
 });
 
 router.route("/:id").delete(function(req, res) {

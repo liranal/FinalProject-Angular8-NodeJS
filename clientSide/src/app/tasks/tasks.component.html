@@ -1,17 +1,15 @@
-<button mat-button [routerLink]="[{ outlets: { AddTask: ['AddTask', id] } }]">
-  Add ToDo
-</button>
-<!--button mat-button (click)="showAddTaskView()">Add Todo</button-->
 <router-outlet name="AddTask"></router-outlet>
 
-<!--app-add-task-form
-  *ngIf="showAddTask"
-  [id]="id"
-  (backFromAddTask)="backFromAddTask()"
-></app-add-task-form-->
 <mat-card class="tasksCard">
   <mat-card-header>
-    <mat-card-title>User {{ this.id }}</mat-card-title>
+    <button
+      mat-button
+      class="AddTaskbtn"
+      [routerLink]="[{ outlets: { AddTask: ['AddTask', id] } }]"
+    >
+      Add Task
+    </button>
+    <mat-card-title>Tasks: User {{ this.id }}</mat-card-title>
   </mat-card-header>
   <mat-selection-list *ngFor="let task of tasks">
     <app-task [task]="task"></app-task>

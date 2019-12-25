@@ -6,6 +6,7 @@ import { AddUserFormComponent } from "./add-user-form/add-user-form.component";
 import { AddTaskFormComponent } from "./add-task-form/add-task-form.component";
 import { UserDataComponent } from "./user-data/user-data.component";
 import { PostsComponent } from "./posts/posts.component";
+import { AddPostFormComponent } from "./add-post-form/add-post-form.component";
 
 const routes: Routes = [
   { path: "Users", component: UsersComponent },
@@ -19,8 +20,8 @@ const routes: Routes = [
         outlet: "AddTask"
       },
       {
-        path: "AddPost",
-        component: AddTaskFormComponent,
+        path: "AddPost/:userid",
+        component: AddPostFormComponent,
         outlet: "AddPost"
       }
     ]

@@ -1,0 +1,34 @@
+<form #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
+  Title:
+  <input
+    minlength="3"
+    required
+    #title="ngModel"
+    [(ngModel)]="post.Title"
+    type="text"
+    name="title"
+  /><br />
+  Body:
+  <input
+    minlength="3"
+    required
+    #body="ngModel"
+    [(ngModel)]="post.Body"
+    type="text"
+    name="body"
+  /><br />
+  <div
+    *ngIf="
+      (!title.valid && title.dirty && title.errors.required) || !isFormValid
+    "
+  >
+    The title is mandatory
+  </div>
+  <div
+    *ngIf="(!body.valid && body.dirty && body.errors.required) || !isFormValid"
+  >
+    The body is mandatory
+  </div>
+  <input mat-button type="submit" value="Send" />
+  <input mat-button type="button" value="Cancel" (click)="cancelBtn()" />
+</form>

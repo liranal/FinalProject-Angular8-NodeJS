@@ -48,7 +48,7 @@ router.route("/").post(function(req, res) {
     Completed: req.body.Completed
   })
     .then(data => {
-      console.log("ADDED Person" + data);
+      console.log("ADDED Task" + data);
       res.json(data);
     })
     .catch(err => res.send(err));

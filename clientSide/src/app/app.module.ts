@@ -27,6 +27,7 @@ import { UsersUtilsServiceService } from "./users-utils-service.service";
 import { AddTaskFormComponent } from "./add-task-form/add-task-form.component";
 import { TasksUtilsServiceService } from "./tasks-utils-service.service";
 import { RightSideComponent } from './right-side/right-side.component';
+import { AddPostFormComponent } from './add-post-form/add-post-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { RightSideComponent } from './right-side/right-side.component';
     PostComponent,
     AddUserFormComponent,
     AddTaskFormComponent,
-    RightSideComponent
+    RightSideComponent,
+    AddPostFormComponent
   ],
   imports: [
     BrowserModule,

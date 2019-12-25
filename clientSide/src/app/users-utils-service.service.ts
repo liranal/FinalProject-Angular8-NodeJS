@@ -28,6 +28,7 @@ export class UsersUtilsServiceService {
     this.http
       .put<any>("http://localhost:8000/api/users/" + id, user)
       .subscribe(data => {
+        console.log("USER: " + JSON.stringify(data));
         let userIndex = this.users.findIndex(userToFind => {
           return userToFind == user;
         });

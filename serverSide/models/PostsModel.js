@@ -56,15 +56,9 @@ module.exports.addPost = async function(obj) {
   console.log(obj);
   newPost = new Post(obj);
   console.log(newPost);
-  return await newPost.save(function(err) {
-    if (err) {
-      console.log(err);
-      return err;
-    } else {
-      console.log("ADDDEDDD");
-      return "Post Added";
-    }
-  });
+  let add = await newPost.save();
+  console.log("Data ADDED: " + add);
+  return add;
 };
 
 module.exports.deletePost = async function(id) {
