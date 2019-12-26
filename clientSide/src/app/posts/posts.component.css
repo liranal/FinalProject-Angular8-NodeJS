@@ -1,5 +1,5 @@
 .tasksCard {
-  float: right;
+  /* float: right; */
   width: 300px;
   overflow-y: scroll;
   scrollbar-color: white;

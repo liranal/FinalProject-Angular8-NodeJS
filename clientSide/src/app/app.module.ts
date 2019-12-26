@@ -11,7 +11,8 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule
+  MatListModule,
+  MatSnackBarModule
 } from "@angular/material";
 import { FormsModule } from "@angular/forms";
 import { MainComponent } from "./main/main.component";
@@ -26,8 +27,8 @@ import { AddUserFormComponent } from "./add-user-form/add-user-form.component";
 import { UsersUtilsServiceService } from "./users-utils-service.service";
 import { AddTaskFormComponent } from "./add-task-form/add-task-form.component";
 import { TasksUtilsServiceService } from "./tasks-utils-service.service";
-import { RightSideComponent } from './right-side/right-side.component';
-import { AddPostFormComponent } from './add-post-form/add-post-form.component';
+import { RightSideComponent } from "./right-side/right-side.component";
+import { AddPostFormComponent } from "./add-post-form/add-post-form.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { AddPostFormComponent } from './add-post-form/add-post-form.component';
     MatInputModule,
     HttpClientModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule
   ],
   providers: [UsersUtilsServiceService, TasksUtilsServiceService],
   bootstrap: [AppComponent]

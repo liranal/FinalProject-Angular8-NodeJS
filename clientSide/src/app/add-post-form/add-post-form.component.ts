@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { PostUtilsServiceService } from "../post-utils-service.service";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "app-add-post-form",
@@ -16,7 +17,8 @@ export class AddPostFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private routerNav: Router,
-    private utils: PostUtilsServiceService
+    private utils: PostUtilsServiceService,
+    private snack: MatSnackBar
   ) {}
 
   cancelBtn() {
@@ -27,9 +29,12 @@ export class AddPostFormComponent implements OnInit {
   customSubmit(isValid: boolean) {
     if (isValid) {
       //this.task.UserID = this.id;
-      alert("ADD!\n" + JSON.stringify(this.post));
+      //alert("ADD!\n" + JSON.stringify(this.post));
       this.isFormValid = true;
       this.utils.addpost(this.post);
+      this.snack.open("Post Added", "Close", {
+        duration: 5000
+      });
       //this.cancelBtn();
       //this.routerNav.navigate(["/Tasks", this.task.UserID]);
     } else {

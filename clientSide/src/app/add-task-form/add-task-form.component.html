@@ -1,13 +1,17 @@
-<form #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
-  Title:
-  <input
-    minlength="3"
-    required
-    #title="ngModel"
-    [(ngModel)]="task.Title"
-    type="text"
-    name="title"
-  /><br />
+<div class="AddTitle">Add Task</div>
+<form class="AddForm" #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      placeholder="Title"
+      minlength="3"
+      required
+      #title="ngModel"
+      [(ngModel)]="task.Title"
+      type="text"
+      name="title"
+    /><br />
+  </mat-form-field>
   <div
     *ngIf="
       (!title.valid && title.dirty && title.errors.required) || !isFormValid
@@ -15,6 +19,8 @@
   >
     The title is mandatory
   </div>
-  <input mat-button type="submit" value="Send" />
-  <input mat-button type="button" value="Cancel" (click)="cancelBtn()" />
+  <div class="formBtns">
+    <input type="submit" class="formBtn" value="Add" />
+    <input type="button" class="formBtn" value="Cancel" (click)="cancelBtn()" />
+  </div>
 </form>

@@ -1,0 +1,46 @@
+.AddForm {
+  background-color: antiquewhite;
+  border-radius: 5px;
+  padding: 15px;
+  border-top-left-radius: 0px;
+}
+
+.AddTitle {
+  background-color: antiquewhite;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-left: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  width: 40%;
+}
+
+.formBtns {
+  display: block;
+}
+
+.formBtn {
+  border: none;
+  background: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.formBtn:hover {
+  color: #404040 !important;
+  font-weight: 700 !important;
+  /* letter-spacing: 3px; */
+  padding: 15px;
+  background: rgba(16, 55, 128, 0.57);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(16, 55, 128, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(16, 55, 128, 0.57);
+  transition: all 0.3s ease 0s;
+}

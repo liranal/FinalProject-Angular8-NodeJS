@@ -1,6 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TasksUtilsServiceService } from "../tasks-utils-service.service";
+import {
+  MatSnackBar,
+  MatSnackBarConfig,
+  MatSnackBarModule
+} from "@angular/material";
 
 @Component({
   selector: "app-add-task-form",
@@ -17,7 +22,8 @@ export class AddTaskFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private routerNav: Router,
-    private utils: TasksUtilsServiceService
+    private utils: TasksUtilsServiceService,
+    private snack: MatSnackBar
   ) {}
 
   cancelBtn() {
@@ -28,9 +34,12 @@ export class AddTaskFormComponent implements OnInit {
   customSubmit(isValid: boolean) {
     if (isValid) {
       //this.task.UserID = this.id;
-      alert("ADD!\n" + JSON.stringify(this.task));
+      //alert("ADD!\n" + JSON.stringify(this.task));
       this.isFormValid = true;
       this.utils.addTask(this.task);
+      this.snack.open("Task Added", "Close", {
+        duration: 5000
+      });
       //this.routerNav.navigate(["/Tasks", this.task.UserID]);
       this.backFromAddTask.emit();
     } else {
