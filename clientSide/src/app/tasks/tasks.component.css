@@ -6,7 +6,7 @@
   height: 500px;
   margin-right: 10%;
   margin-top: 10%;
-  background-image: linear-gradient(to top, #fbc2eb 0%, #e0adc3 100%);
+  background-color: #d4c5ff;
 }
 
 .tasksCard::-webkit-scrollbar {

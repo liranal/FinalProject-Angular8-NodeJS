@@ -1,8 +1,10 @@
-/*.searchFld {
-  margin-left: 20px;
+.searchFld {
   margin-top: 10px;
-}
-*/
-.usersData {
-  width: 80vw;
+  margin-bottom: 5px;
+  background-color: #fefedf;
+  border-radius: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  box-shadow: 5px 5px 5px;
 }
