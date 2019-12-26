@@ -8,7 +8,7 @@
       (keyup)="search(searchField.value)"
     />
   </mat-form-field>
-  <button mat-button [routerLink]="['/AddUser']">Add</button>
+  <button class="addBtn" mat-button [routerLink]="['/AddUser']">Add</button>
   <div *ngFor="let user of users">
     <app-user
       [user]="user"
