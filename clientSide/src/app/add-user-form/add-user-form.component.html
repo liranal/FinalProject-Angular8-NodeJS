@@ -1,22 +1,29 @@
-<form #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
-  Name:
-  <input
-    minlength="3"
-    required
-    #UserName="ngModel"
-    [(ngModel)]="user.Name"
-    type="text"
-    name="UserName"
-  /><br />
-  Email :
-  <input
-    minlength="5"
-    #Email="ngModel"
-    [(ngModel)]="user.Email"
-    type="text"
-    name="Email"
-  /><br />
-
+<div class="AddTitle">Add User</div>
+<form class="AddForm" #f="ngForm" (ngSubmit)="customSubmit(f.valid)">
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      minlength="3"
+      required
+      #UserName="ngModel"
+      [(ngModel)]="user.Name"
+      type="text"
+      name="UserName"
+      placeholder="Name"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width">
+    <input
+      matInput
+      placeholder="Email"
+      minlength="5"
+      #Email="ngModel"
+      [(ngModel)]="user.Email"
+      type="text"
+      name="Email"
+    />
+  </mat-form-field>
   <div
     *ngIf="
       (!UserName.valid && UserName.dirty && UserName.errors.required) ||
@@ -32,6 +39,7 @@
   <div *ngIf="(!Email.valid && Email.dirty) || !isFormValid">
     The Email must be 5 chars minimum
   </div>
-
-  <input type="submit" value="Send" />
+  <div class="formBtns">
+    <input class="formBtn" type="submit" value="Send" />
+  </div>
 </form>

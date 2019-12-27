@@ -10,8 +10,9 @@
       [(ngModel)]="post.Title"
       type="text"
       name="title"
-    /><br />
+    />
   </mat-form-field>
+  <br />
   <mat-form-field class="example-full-width">
     <input
       matInput
@@ -22,8 +23,8 @@
       [(ngModel)]="post.Body"
       type="text"
       name="body"
-    /> </mat-form-field
-  ><br />
+    />
+  </mat-form-field>
   <div
     *ngIf="
       (!title.valid && title.dirty && title.errors.required) || !isFormValid

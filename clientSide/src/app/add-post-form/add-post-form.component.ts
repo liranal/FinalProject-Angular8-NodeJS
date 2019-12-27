@@ -36,7 +36,7 @@ export class AddPostFormComponent implements OnInit {
         duration: 5000
       });
       //this.cancelBtn();
-      //this.routerNav.navigate(["/Tasks", this.task.UserID]);
+      this.routerNav.navigate(["/UserData", this.post.UserID]);
     } else {
       this.isFormValid = false;
     }

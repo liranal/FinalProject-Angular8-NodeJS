@@ -50,12 +50,15 @@ export class UsersUtilsServiceService {
   }
 
   addUser(user) {
-    let lastUserID = Math.max.apply(
-      Math,
-      this.users.map(function(user) {
-        return user.UserID;
-      })
-    );
+    let lastUserID = 0;
+    if (this.users.length > 0) {
+      lastUserID = Math.max.apply(
+        Math,
+        this.users.map(function(user) {
+          return user.UserID;
+        })
+      );
+    }
     user["UserID"] = lastUserID + 1;
     this.http
       .post<any>("http://localhost:8000/api/users/", user)

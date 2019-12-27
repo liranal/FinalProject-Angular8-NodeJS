@@ -41,7 +41,7 @@ export class AddTaskFormComponent implements OnInit {
         duration: 5000
       });
       //this.routerNav.navigate(["/Tasks", this.task.UserID]);
-      this.backFromAddTask.emit();
+      this.routerNav.navigate(["/UserData", this.task.UserID]);
     } else {
       this.isFormValid = false;
     }

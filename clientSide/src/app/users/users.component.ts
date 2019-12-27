@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { UsersUtilsServiceService } from "../users-utils-service.service";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "app-users",
@@ -9,15 +10,24 @@ import { UsersUtilsServiceService } from "../users-utils-service.service";
 export class UsersComponent implements OnInit {
   @Output() userEventClicked: EventEmitter<number> = new EventEmitter<number>();
   @Input() users: any[];
-  constructor(private utils: UsersUtilsServiceService) {}
+  constructor(
+    private utils: UsersUtilsServiceService,
+    private snack: MatSnackBar
+  ) {}
 
   userUpdate_Event(user) {
     this.utils.setUserData(user.UserID, user);
+    this.snack.open("User updated", "Close", {
+      duration: 5000
+    });
   }
 
   userDelete_Event(userToDelete) {
     console.log("User to Delete: " + userToDelete.UserID);
     this.utils.deleteUserData(userToDelete);
+    this.snack.open("User deleted", "Close", {
+      duration: 5000
+    });
     console.log(this.users);
   }
 
